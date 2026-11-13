@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano Midi</title>
+    <script defer>
+        if (navigator.requestMIDIAccess) {
+            window.location.assign("Supported.html");
+        } else {
+            window.location.assign("NotSupported.html");
+        }
+    </script>
+</head>
+<body style="margin: 0; background-color: bisque; display: flex; justify-content: center; align-items: center; height: 100%; flex-direction: column;">
+    <h1 style="margin: 5vw 15vw; text-align: center; font-size: 10vw; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Checking compatibility...</h1>
+</body>
+</html>
