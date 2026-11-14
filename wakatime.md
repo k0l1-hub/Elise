@@ -25,3 +25,11 @@ This took me 0.5 hours aprox
 ### version 0.0.3
 
 I finished a first look of the piano roll and you can change the size, maybe I will make an input question or something, browsers cant know the size of a midi instrument
+
+![alt text](image.png)
+
+This took me 1 hour and 28 minutes acording to WakaTime
+
+### version 0.0.4
+
+Im too tired so I will follow tomorrow, by now I finished the piano roll, I investigated about instruments for the piano and I got soundfont-player.js but its a bit complicated
