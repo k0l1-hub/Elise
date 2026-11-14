@@ -4,7 +4,7 @@ As a help for the reviewers of this project to get an idea of all the process to
 
 ## What did I do?
 
-### First commit
+### version 0.0.1
 
 As one of my next projects I will make a website similar to synthesia to play music.
 
@@ -14,3 +14,14 @@ Then, I made index.html, script.js, style.css, etc and I add the code presented 
 
 This took me 1.5 hours aprox
 
+### version 0.0.2
+
+By this time I changed the directory system for a more organized system
+
+Also, I connected my midi and I tried some tests with console.log()
+
+This took me 0.5 hours aprox
+
+### version 0.0.3
+
+I finished a first look of the piano roll and you can change the size, maybe I will make an input question or something, browsers cant know the size of a midi instrument
