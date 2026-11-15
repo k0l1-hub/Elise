@@ -54,3 +54,15 @@ So I finally got a prototype, basically, after like 4 hours of working, finding 
 We are close to the 1.0.0
 
 This took me 4 hour and 28 minutes acording to WakaTime
+
+### version 0.2.1
+
+I finished the keyboard, after 10 minutes fixing something with the ids
+
+### version 1.0.0
+
+I fixed the movement of the transform, it was like that because by default it uses ease instead of linear but now works fine, also you can select if you want opacity or not in the start of the js, also, I should deleate the 2 other folders, notsupported and index becuase you can click directly in the piano which I suppose is enough, I will do it and submit the repo
+
+Also I need to make the README.md, I will put a small UI because this is literally a web page and a piano,
+
+And I think that for 1.5.0 I will implement a soundfont selector to select between instruments
