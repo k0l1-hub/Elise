@@ -66,3 +66,11 @@ I fixed the movement of the transform, it was like that because by default it us
 Also I need to make the README.md, I will put a small UI because this is literally a web page and a piano,
 
 And I think that for 1.5.0 I will implement a soundfont selector to select between instruments
+
+### Version 1.1.0
+
+Basically I add instruments! and also an alert for the piano because you need to make a click to get sound because of security or something like that
+
+Today is thursday, its 10:30 pm and tomorrow I need to wake up at 5:30 so Im going to sleep
+
+Btw, I made a github page for this project
