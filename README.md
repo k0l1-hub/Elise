@@ -6,9 +6,13 @@ Essentially, this is a page built using HTML, CSS, and JavaScript that makes not
 
 ## Requirements
 
-To run this project, you will need a web browser.
+To run this project, you will need:
 
-You can try a demo on the GitHub Pages website in [here](https://k0l1-hub.github.io/Elise/src/Supported.html).
+- A web browser
+- Internet
+- A computer (The page is primarly made for computers but MAYBE can work in other decices)
+
+You do not need to clone the repo, you can try a demo on the GitHub Pages website in [here](https://k0l1-hub.github.io/Elise/src/Supported.html).
 
 ## AI Usage
 
