@@ -1,9 +1,15 @@
+const body = document.body;
+let col = "orange";
+let background = "rgb(20, 20, 20)";
+body.style.background = background;
+
 const MidiKeys = 88; 
 const OFFSET = 20;
 
 let synth = new Tone.PolySynth(Tone.Synth).toDestination();
-const strength = true;
+const strength = prompt("Presion in the keys? you can change it by reloading the page (respond N/Y)") == "Y"? true:false;
 let currentKeysId = []
+
 
 const instruments = {
   "Piano": () => new Tone.Sampler({
@@ -12,7 +18,7 @@ const instruments = {
     release: 1
   }),
 
-  "Casio": () => new Tone.Sampler({
+  "Electric Piano": () => new Tone.Sampler({
     urls: { A1: "A1.mp3", A2: "A2.mp3" },
     baseUrl: "https://tonejs.github.io/audio/casio/",
     release: 1
@@ -23,7 +29,6 @@ synth = instruments["Piano"]().toDestination();
 
 const piano = document.getElementById("piano")
 piano.style.gridTemplateColumns = `repeat(${MidiKeys}, 1fr)`;
-const body = document.body;
 
 body.style.gridTemplateColumns = `repeat(${MidiKeys}, 1fr)`
 
@@ -45,11 +50,11 @@ const keys = [
   ];
 
   
-  async function play(noteOrEvent, pressure=false, midi=false) {
+  async function play(noteOrEvent, pressure=false, Pianomidi=false) {
     if (pressure) {
       synth.triggerAttack(Tone.Frequency(noteOrEvent.data[1], "midi").toNote(), Tone.now(), noteOrEvent.data[2] / 127);
     } else {
-      if (midi) {
+      if (Pianomidi) {
         synth.triggerAttack(Tone.Frequency(noteOrEvent, "midi").toNote(), Tone.now());
       } else {
         synth.triggerAttack(Tone.Frequency(noteOrEvent+OFFSET, "midi").toNote(), Tone.now());
@@ -57,8 +62,8 @@ const keys = [
     }
   };
 
-  async function releaseNote(note, midi=true) {
-    if (midi) {
+  async function releaseNote(note, Pianomidi=true) {
+    if (Pianomidi) {
       synth.triggerRelease(Tone.Frequency(note, "midi").toNote());
     } else {
       synth.triggerRelease(Tone.Frequency(note+OFFSET, "midi").toNote());
@@ -79,6 +84,7 @@ function press(note, event=null) {
     
     
     line.id = c;
+    line.style.backgroundColor = col;
     ids.push(c);
     
     line.className = "note";
@@ -92,7 +98,7 @@ function press(note, event=null) {
         line.style.opacity = event.data[2]/100;
         play(event, true, true)
       } else {
-        play(event, midi = true)
+        play(event, true)
       }
       
     }
@@ -139,9 +145,9 @@ for (let z = 1; z < MidiKeys+1; z++) {
   
   currentKeysId[note.id] = [null, false, 0, ["line"+note.id]];
   
-  note.addEventListener("mousedown", (event) => event.button===0? press(note.id) : () => {});
+  note.addEventListener("mousedown", (event) => event.button===0? press(Number(note.id)) : () => {});
 
-  note.addEventListener("mouseleave", () => release(note.id));
+  note.addEventListener("mouseleave", () => release(Number(note.id)));
 
   note.addEventListener("mouseup", (event) => event.button===0? release(Number(note.id)) : () => {});
 
@@ -176,7 +182,14 @@ navigator.requestMIDIAccess().then((access) => {
         console.log(type);
         if (!ready) {
           ready = true
-          body.innerHTML += "<h1 id='notice' style='position: fixed;right: 10vw; top: 10vw; '>Click the page for sound</h1>"
+          const notice = document.createElement("h1");
+          notice.id = 'notice';
+          notice.style = "position: fixed; right: 10vw; top: 10vw;"
+          notice.innerText = "Click the page for sound"
+          body.appendChild(notice);
+          setTimeout(() => {
+            notice.remove()
+          }, 5000)
         }
 
         if (type == 144 && event.data[2] > 0) {
@@ -280,9 +293,32 @@ instru.addEventListener("change", () => {
   synth = instruments[instru.value]().toDestination();
 })
 
+document.getElementById("color").addEventListener("click", () => {
+  c = prompt("Select a color for notes")
+  if (!(c==null)) {
+    col = c
+  }
+});
 
+document.getElementById("BackImage").addEventListener("change", (event)=> {
+  if (!(event.target.files[0]===null)) {
 
-document.addEventListener("click", () => {
-  synth.releaseAll();
-  document.getElementById("notice").remove();
-}, { once: true })
+    body.style.opacity = "0";
+    setTimeout(() => {
+      body.style.background = `url("${URL.createObjectURL(event.target.files[0])}")`;
+      body.style.backgroundSize = "cover";
+      body.style.backgroundPosition = "center";
+      body.style.backgroundRepeat = "no-repeat";
+      body.style.opacity = "1";
+    }, 3000)
+  }
+});
+
+document.getElementById("backgroundCol").addEventListener("click", () => {
+  color = prompt("Background Color");
+  body.style.opacity = "0";
+  setTimeout(() => {
+    body.style.background = color;
+    body.style.opacity = "1";
+  }, 3000)
+})

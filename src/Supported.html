@@ -5,24 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piano midi</title>
     <link href="style.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/tone"></script>
+    <script src="https://unpkg.com/tone"></script>
     <script src="script.js" defer></script>
 <head>
 <body>
     <div id="box">
-        <!-- <div class="box" id="metronome">
-            <img id="MetronomeImg" src="../assets/metronome.gif" alt="">
-            <h1 id="MetronomeText">Metronome</h1>
-        </div>
-        <hr> -->
-        <!-- Later -->
-
         <div class="box">
             <h1>Instrument</h1>
             <select id="instrument">
             </select>
         </div>
-        <button id="exit">Exit</button>
+        <div class="box">
+            <button id="color">Change color of notes</button>
+            <div>
+                <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 1vw;">
+                    <h1>background</h1>
+                    <button id="backgroundCol">Background Color</button>
+                </div>
+                <input type="file" id="BackImage"/>
+            </div>
+            <button id="exit">Exit</button>
+        </div>
     </div>
 
     <div id="piano">
