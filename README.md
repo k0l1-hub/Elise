@@ -2,7 +2,7 @@
 
 Essentially, this is a page built using HTML, CSS, and JavaScript that makes notes to fall that simulates the style of synthesia.
 
-![alt text](image.png)
+![alt text](Thumbnail.png)
 
 ## Requirements
 
