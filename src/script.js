@@ -4,7 +4,7 @@ let background = "rgb(20, 20, 20)";
 body.style.background = background;
 
 const MidiKeys = 88; 
-const OFFSET = 20;
+const OFFSET = 21;
 
 let synth = new Tone.PolySynth(Tone.Synth).toDestination();
 const strength = prompt("Presion in the keys? you can change it by reloading the page (respond N/Y)") == "Y"? true:false;
